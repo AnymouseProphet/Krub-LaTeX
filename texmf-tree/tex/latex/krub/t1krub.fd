@@ -1,0 +1,11 @@
+% t1krub.fd
+%
+\ProvidesFile{t1krub.fd}[2021/08/01 T1 Krub font definition]
+\DeclareFontFamily{T1}{krub}
+\DeclareFontShape{T1}{krub}{b}{n}{<->eckrubsb}{}
+\DeclareFontShape{T1}{krub}{b}{it}{<->eckrubsbi}{}
+\DeclareFontShape{T1}{krub}{bx}{n}{<->eckrubb}{}
+\DeclareFontShape{T1}{krub}{bx}{it}{<->eckrubbi}{}
+\DeclareFontShape{T1}{krub}{m}{n}{<->eckrubm}{}
+\DeclareFontShape{T1}{krub}{m}{it}{<->eckrubmi}{}
+\endinput
