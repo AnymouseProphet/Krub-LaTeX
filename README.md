@@ -75,8 +75,7 @@ intended.
 
 As such you may not want to install the TTF fonts in this git on a Windows
 system for use outside of LaTeX---instead just use Google Fonts download as
-system fonts on a Windows system---assuming you *want* Space Mono as a system
-font.
+system fonts on a Windows system---assuming you *want* Krub as a system font.
 
 The same issue *may* exist with Microsoft software running on macOS---using the
 Google Fonts version *may* be better on macOS too if using as a system font and
@@ -130,8 +129,8 @@ The resulting `.tfm` files are located within the following directory:
 It is my understanding that in most countries, font metric files are not subject
 to copyright and therefore not subject to the font license. However, if that is
 not the case in your country, the Adobe Font Metric files and the TeX Font
-Metric files would fall under the same SIL OFL that the Space Mono font files
-falls under.
+Metric files would fall under the same SIL OFL that the Krub font files fall
+under.
 
 
 Map File
