@@ -14,38 +14,13 @@ From the Google Fonts Page (retrieved 2021-08-01):
 
 See: [Google Fonts: About Krub](https://fonts.google.com/specimen/Krub#about)
 
-This package will work in pdfLaTeX and LuaLaTeX. It is not tested in XeLaTeX.
+This package will work in pdfLaTeX and LuaLaTeX. It is not tested in XeLaTeX but
+I suspect it will work there too.
 
 Note that there does not seem to be an "official" 7 or 8-bit LaTeX font encoding
 for the Thai script, so only the T1 encoding is supported with pdfLaTeX. If you
 wish to use the Thai script, use `fontspec` with one of the modern Unicode LaTeX
 engines.
-
-This package does not include a style file. It does include a map file and a
-font definition file for the T1 encoding.
-
-
-Special Purpose
----------------
-
-My purpose for this font is not actually related to the Thai script. It is
-strictly to use it when typesetting taxonomical names. I like that this font is
-very legible in the italic form usually used for taxonomical names and I like
-that the italic slant is less than what is typically used for italics with Latin
-scripts.
-
-I am not including style files to use this font as either the document heading
-font or as the document text font. Map file and a T1 encoding font definition
-file are included but style file(s) are not.
-
-When I need to use this font with LuaLaTeX I just use `fontspec` and when I want
-to use this font with pdfLaTeX I just use the LaTeX font selection primatives.
-
-See Section 2.2 (Selection Commands) in the LaTeX font guide:
-
-    texdoc fntguide
-
-In the future I may add a style file.
 
 
 Font Modifications for LaTeX
@@ -173,20 +148,28 @@ must be applied to it---then Creative Commons CC0 would apply. That license is
 equivalent to Public Domain.
 
 
-Font Driver Files
------------------
+Font Definition File
+--------------------
 
-A font driver files for one TeX Encoding is provided:
+For pdfLaTeX users a font definition files for one TeX Encoding is provided:
 
 1. `texmf-tree/tex/latex/krub/t1krub.fd`
 
-The font definitions file does not include shape definitions for the
-extra-light, light, or normal weights. It uses the Medium weight as the LaTeX
-normal weight, the SemiBold weight as the LaTeX bold weight, and the Bold weight
-as the LaTeX extra bold weight.
+The font has two "normal" weights, one looks like a good match for the weight of
+Computer Modern and the other looks like a good match for the weight of Times /
+TeX Gyre Termes.
 
-With my special purpose, what the font defines as the normal weight was too thin
-to use with TeX Gyre Termes but what the font defines as Medium was just right.
+The font definition files uses the slightly thicker "normal" weight that is a
+good match for Times / TeX Gyre Termes. If you prefer the thinner weight and are
+using pdfLaTeX you can load the `krub.sty` file with the `thin` or `thin=yes`
+option specified and the style file will define the font definitions using the
+thinner "normal" weight that is a better match for Computer Modern.
+
+
+The `krub.sty` Style File
+-------------------------
+
+Not yet tested let alone documented. This is the development branch.
 
 
 Install

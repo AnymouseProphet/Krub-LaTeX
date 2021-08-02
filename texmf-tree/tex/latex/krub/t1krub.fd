@@ -1,11 +1,15 @@
 % t1krub.fd
 %
-\ProvidesFile{t1krub.fd}[2021/08/01 T1 Krub font definition]
+\ProvidesFile{t1krub.fd}[2021/08/02 T1 Krub font definition]
 \DeclareFontFamily{T1}{krub}{}
-\DeclareFontShape{T1}{krub}{b}{n}{<->ecKrub-SemiBold}{}
-\DeclareFontShape{T1}{krub}{b}{it}{<->ecKrub-SemiBoldItalic}{}
-\DeclareFontShape{T1}{krub}{bx}{n}{<->ecKrub-Bold}{}
-\DeclareFontShape{T1}{krub}{bx}{it}{<->ecKrub-BoldItalic}{}
+\DeclareFontShape{T1}{krub}{el}{n}{<->ecKrub-ExtraLight}{}
+\DeclareFontShape{T1}{krub}{el}{i}{<->ecKrub-ExtraLightItalic}{}
+\DeclareFontShape{T1}{krub}{l}{n}{<->ecKrub-Light}{}
+\DeclareFontShape{T1}{krub}{l}{i}{<->ecKrub-LightItalic}{}
+\DeclareFontShape{T1}{krub}{sb}{n}{<->ecKrub-SemiBold}{}
+\DeclareFontShape{T1}{krub}{sb}{it}{<->ecKrub-SemiBoldItalic}{}
+\DeclareFontShape{T1}{krub}{b}{n}{<->ecKrub-Bold}{}
+\DeclareFontShape{T1}{krub}{b}{it}{<->ecKrub-BoldItalic}{}
 \DeclareFontShape{T1}{krub}{m}{n}{<->ecKrub-Medium}{}
 \DeclareFontShape{T1}{krub}{m}{it}{<->ecKrub-MediumItalic}{}
 \endinput

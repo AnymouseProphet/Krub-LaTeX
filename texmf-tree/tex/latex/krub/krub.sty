@@ -1,0 +1,88 @@
+\NeedsTeXFormat{LaTeX2e}
+\def\fileversion{0.1}
+\def\filedate{2021/08/02}
+\ProvidesPackage{krub}[\filedate\space v\fileversion]
+%
+\message{`krub' v\fileversion, \filedate\space Loads the Krub font either as Sans Font or as Document Font (anymouseprophet)}
+%
+\newcommand{\krubusefontspec}{yes}
+\newcommand{\krubmainfont}{no}
+\newcommand{\krubthin}{no}
+%
+\RequirePackage{iftex}
+\RequirePackage{kvoptions}
+\RequirePackage{ifthen}
+\define@key{zkrub}{fontspec}[yes]{\renewcommand{\krubusefontspec}{#1}}
+\define@key{zkrub}{mainfont}[yes]{\renewcommand{\krubmainfont}{#1}}
+\define@key{zkrub}{thin}[yes]{\renewcommand{\krubthin}{#1}}
+\ProcessKeyvalOptions{zkrub}
+\ifthenelse{\equal{\krubusefontspec}{yes}}{}{
+  \renewcommand{\krubusefontspec}{no}
+}
+\ifthenelse{\equal{\krubmainfont}{yes}}{}{
+  \renewcommand{\krubmainfont}{no}
+}
+\ifthenelse{\equal{\krubthin}{yes}}{}{
+  \renewcommand{\krubthin}{no}
+}
+% for pdftex always turn fontspec off.
+\ifpdftex
+  \renewcommand{\krubusefontspec}{no}
+  \RequirePackage[T1]{fontenc}
+\else
+  % if fontspec already loaded, always turn it on.
+  \@ifpackageloaded{fontspec}{%
+    \renewcommand{\krubusefontspec}{yes}
+  }{}
+\fi
+% now we can load the font.
+\ifthenelse{\equal{\krubusefontspec}{yes}}{% utf8 TU encoding
+  \ifthenelse{\equal{\krubthin}{yes}}{
+    \newcommand{\fntkrubnormal}{Regular}
+    \newcommand{\fntkrubitalic}{Italic}
+  }{
+    \newcommand{\fntkrubnormal}{Medium}
+    \newcommand{\fntkrubitalic}{MediumItalic}
+  }
+  \RequirePackage{fontspec}
+  \ifthenelse{\equal{\krubmainfont}{yes}}{
+    \setmainfont
+      [ Ligatures   = TeX ,
+        Extension   = .ttf ,
+        UprightFont = *-\fntkrubnormal ,
+        ItalicFont  = *-\fntkrubitalic ,
+        BoldFont    = *-SemiBold ,
+        BoldItalicFont = *-SemiBoldItalic ]
+      {Krub}
+  }{}
+  \setsansfont
+    [ Ligatures   = TeX ,
+      Extension   = .ttf ,
+      Scale = MatchLowercase ,
+      UprightFont = *-\fntkrubnormal ,
+      ItalicFont  = *-\fntkrubitalic ,
+      BoldFont    = *-Bold ,
+      BoldItalicFont = *-BoldItalic ]
+    {Krub}
+}{% 8-bit T1 encoding
+  \ifthenelse{\equal{\krubthin}{yes}}{% declare font here
+    \DeclareFontFamily{T1}{krub}{}
+    \DeclareFontShape{T1}{krub}{el}{n}{<->ecKrub-ExtraLight}{}
+    \DeclareFontShape{T1}{krub}{el}{i}{<->ecKrub-ExtraLightItalic}{}
+    \DeclareFontShape{T1}{krub}{l}{n}{<->ecKrub-Light}{}
+    \DeclareFontShape{T1}{krub}{l}{i}{<->ecKrub-LightItalic}{}
+    \DeclareFontShape{T1}{krub}{sb}{n}{<->ecKrub-SemiBold}{}
+    \DeclareFontShape{T1}{krub}{sb}{it}{<->ecKrub-SemiBoldItalic}{}
+    \DeclareFontShape{T1}{krub}{b}{n}{<->ecKrub-Bold}{}
+    \DeclareFontShape{T1}{krub}{b}{it}{<->ecKrub-BoldItalic}{}
+    \DeclareFontShape{T1}{krub}{m}{n}{<->ecKrub-Regular}{}
+    \DeclareFontShape{T1}{krub}{m}{it}{<->ecKrub-Italic}{}
+  }{% t1krub.fd declares font
+  }
+  \ifthenelse{\equal{\krubmainfont}{yes}}{
+    \renewcommand{\rmdefault}{krub}
+  }{}
+  \renewcommand{\sfdefault}{krub}
+}
+% end of style
+\endinput
