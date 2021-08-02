@@ -16,9 +16,10 @@ See: [Google Fonts: About Krub](https://fonts.google.com/specimen/Krub#about)
 
 This package will work in pdfLaTeX and LuaLaTeX. It is not tested in XeLaTeX.
 
-Note that there does not seem to be an "official" 256-bit LaTeX font encoding
-for the Thai script, only the T1 encoding is supported with pdfLaTeX. To use the
-Thai script, use `fontspec` with one of the modern Unicode LaTeX engines.
+Note that there does not seem to be an "official" 7 or 8-bit LaTeX font encoding
+for the Thai script, so only the T1 encoding is supported with pdfLaTeX. If you
+wish to use the Thai script, use `fontspec` with one of the modern Unicode LaTeX
+engines.
 
 This package does not include a style file. It does include a map file and a
 font definition file for the T1 encoding.
@@ -27,14 +28,28 @@ font definition file for the T1 encoding.
 Special Purpose
 ---------------
 
-My purpose for this font is strictly to use it when typesetting taxonomical
-names. I am not including style files to use this font as either the document
-heading font or as the document text font. Map file and a T1 encoding font
-definition file are included but style file(s) are not.
+My purpose for this font is not actually related to the Thai script. It is
+strictly to use it when typesetting taxonomical names. I like that this font is
+very legible in the italic form usually used for taxonomical names and I like
+that the italic slant is less than what is typically used for italics with Latin
+scripts.
+
+I am not including style files to use this font as either the document heading
+font or as the document text font. Map file and a T1 encoding font definition
+file are included but style file(s) are not.
+
+When I need to use this font with LuaLaTeX I just use `fontspec` and when I want
+to use this font with pdfLaTeX I just use the LaTeX font selection primatives.
+
+See Section 2.2 (Selection Commands) in the LaTeX font guide:
+
+    texdoc fntguide
+
+In the future I may add a style file.
 
 
-Modifications for LaTeX
------------------------
+Font Modifications for LaTeX
+----------------------------
 
 As distributed from Google Fonts, the font files will not work with `pdflatex`
 because they have the `OS/2 Version` set to `4` which the `pdftex` engine used
