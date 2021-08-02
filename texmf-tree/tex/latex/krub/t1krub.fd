@@ -12,4 +12,6 @@
 \DeclareFontShape{T1}{krub}{b}{it}{<->ecKrub-BoldItalic}{}
 \DeclareFontShape{T1}{krub}{m}{n}{<->ecKrub-Medium}{}
 \DeclareFontShape{T1}{krub}{m}{it}{<->ecKrub-MediumItalic}{}
+\DeclareFontShape{T1}{krub}{bx}{n}{<->ssub * krub/b/n}{}
+\DeclareFontShape{T1}{krub}{bx}{i}{<->ssub * krub/b/i}{}
 \endinput

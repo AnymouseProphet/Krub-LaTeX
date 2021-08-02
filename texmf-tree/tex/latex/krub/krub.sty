@@ -77,10 +77,15 @@
     \DeclareFontShape{T1}{krub}{b}{it}{<->ecKrub-BoldItalic}{}
     \DeclareFontShape{T1}{krub}{m}{n}{<->ecKrub-Regular}{}
     \DeclareFontShape{T1}{krub}{m}{it}{<->ecKrub-Italic}{}
+    \DeclareFontShape{T1}{krub}{bx}{n}{<->ssub * krub/b/n}{}
+    \DeclareFontShape{T1}{krub}{bx}{i}{<->ssub * krub/b/i}{}
   }{% t1krub.fd declares font
   }
   \ifthenelse{\equal{\krubmainfont}{yes}}{
     \renewcommand{\rmdefault}{krub}
+    \makeatletter
+    \renewcommand{\bfdefault}{\ifx\f@family\rmdefault sb\else bx\fi}
+    \makeatother
   }{}
   \renewcommand{\sfdefault}{krub}
 }
